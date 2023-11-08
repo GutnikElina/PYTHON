@@ -1,52 +1,31 @@
 """ Найти сумму каждого столбца матрицы размером m*n """
 
-
-while True:
-    try:
-        m = int(input("Введите количество строк матрицы: "))
-        if m < 1:
+def get_input(prompt, data_type):
+    while True:
+        try:
+            user_input = data_type(input(prompt))
+            break
+        except ValueError:
             print("\n----- Ошибка при вводе данных -----")
             print("-------- Попробуйте снова ---------\n")
-            continue
-        break
-    except ValueError:
-        print("\n----- Ошибка при вводе данных -----")
-        print("-------- Попробуйте снова ---------\n")
+    return user_input
 
-while True:
-    try:
-        n = int(input("Введите количество столбцов матрицы: "))
-        if n < 1:
-            print("\n----- Ошибка при вводе данных -----")
-            print("-------- Попробуйте снова ---------\n")
-            continue
-        break
-    except ValueError:
-        print("\n----- Ошибка при вводе данных -----")
-        print("-------- Попробуйте снова ---------\n")
+m = get_input("Введите количество строк матрицы: ", int)
+n = get_input("Введите количество столбцов матрицы: ", int)
 
 matrica = []
 for i in range(m):
-    matrica.append([0]*n)
-
-for i in range(m):
+    row = []
     for j in range(n):
-        while True:
-            try:
-                element = int(input(f"Введите элемент a[{i}][{j}] матрицы: "))
-                matrica[i][j] = element
-                break
-            except ValueError:
-                print("\n----- Ошибка при вводе данных -----")
-                print("-------- Попробуйте снова ---------\n")
+        element = get_input(f"Введите элемент a[{i}][{j}] матрицы: ", int)
+        row.append(element)
+    matrica.append(row)
 
-for i in range(len(matrica)):
-    for j in range(len(matrica[i])):
-        print(matrica[i][j], end=' ')
+for row in matrica:
+    for element in row:
+        print(element, end=' ')
     print()
 
-for i in range(len(matrica[0])):
-    summa = 0
-    for j in range(len(matrica)):
-        summa += matrica[j][i]
-    print(f"Сумма {1+i}-го столбца: {summa}")
+for i in range(n):
+    column_sum = sum(row[i] for row in matrica)
+    print(f"Сумма {i+1}-го столбца: {column_sum}")
