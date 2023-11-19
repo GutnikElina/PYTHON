@@ -1,8 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def f(x, a):
     return (1/np. tan(x))**3 + 2.24*a*x
+
+
 a_values = np.arange(-5, 12.5, 0.5)
 x_value = 3.567
 

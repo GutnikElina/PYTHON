@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="044fd374-6042-4ada-af6b-558dd59cc460" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/z_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/z_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/z_4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/z_5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zad_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/z_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/z_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/z_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/z_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/z_5.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +38,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.z_4">
+  <component name="RunManager" selected="Python.z_5">
     <configuration name="z_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="lab_5" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -170,9 +167,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.z_5" />
         <item itemvalue="Python.z_4" />
         <item itemvalue="Python.z_1" />
-        <item itemvalue="Python.z_5" />
         <item itemvalue="Python.za_4" />
         <item itemvalue="Python.za_2" />
       </list>
