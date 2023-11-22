@@ -1,30 +1,42 @@
-##Работа с Pandas и визуализация данных в Matplotlib\
+##Работа с Pandas и визуализация данных в Matplotlib
 
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
+import numpy as np
 
-# Замените 'dataset.csv' на имя вашего файла датасета
+data = {
+    'Rooms': np.random.randint(1, 6, 1000),
+    'District': np.random.choice(['Central', 'North', 'South', 'East', 'West'], 1000),
+    'Price': np.random.randint(50000, 200000, 1000)
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+df.to_csv('dataset.csv', index=False)
+
 df = pd.read_csv('dataset.csv')
+df_1000 = df.head(1000)
+missing_data = df_1000.isnull().sum()
 
-
-subset_df = df.sample(n=1000, random_state=42)
-
-missing_values = subset_df.isnull().sum()
-
-# Построение ящиков с усами
-sns.boxplot(x='column_name', y='target_column', data=subset_df)
-plt.yscale('log')  # логарифмическая шкала
+plt.figure(figsize=(10, 6))
+plt.yscale('log')
+df.boxplot()
 plt.show()
 
-# Построение гистограммы
-sns.histplot(subset_df['column_name'], kde=True)
+df.hist()
 plt.show()
 
-##Заполнить пропуски и обработать аномальные значения.
+mean_rooms = df['Rooms'].mean()
+df['Rooms'] = df['Rooms'].fillna(mean_rooms)
+df = df[(df['Price'] > 10000) & (df['Price'] < 200000)]
 
-room_counts = subset_df['колонка_с_количеством_комнат'].value_counts()
+room_counts = df['Rooms'].value_counts()
 
-pivot_table = pd.pivot_table(subset_df, index='район', columns='колонка_с_количеством_комнат', aggfunc='size', fill_value=0)
+pivot_df = df.pivot_table(index='District', columns='Rooms', values='Price', aggfunc='count')
 
-subset_df.to_csv('surname.csv', index=False)
+pivot_df.index.name = 'Район'
+pivot_df.columns = [f'{i}_комнатные' for i in pivot_df.columns]
+print(pivot_df)
+
+df.to_csv('surname.csv', index=False)

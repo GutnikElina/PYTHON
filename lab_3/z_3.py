@@ -22,7 +22,7 @@ for line in lines:
 
     for les in lesson:
         if "(л)" in les:
-            hours += int(les.split("")[0])
+            hours += int(les.split("л")[0])
         elif "(пр)" in les:
             hours += int(les.split("(пр)")[0])
         elif "(лаб)" in les:
